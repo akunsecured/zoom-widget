@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
               );
             },
             child: Text(
-              'Zoomeable image gallery',
+              'Zoomable image gallery',
             ),
           ),
         ],

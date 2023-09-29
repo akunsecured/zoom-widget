@@ -30,6 +30,7 @@ class Zoom extends StatefulWidget {
     this.onPositionUpdate,
     this.onScaleUpdate,
     this.onPanUpPosition,
+    this.onPanDownPosition,
     this.onMinZoom,
     this.onTap,
     this.opacityScrollBars = 0.5,
@@ -59,6 +60,7 @@ class Zoom extends StatefulWidget {
   final Function(Offset)? onPositionUpdate;
   final Function(double, double)? onScaleUpdate;
   final Function(Offset)? onPanUpPosition;
+  final Function(Offset)? onPanDownPosition;
   final Function(bool)? onMinZoom;
   final Function()? onTap;
   final double opacityScrollBars;
@@ -939,6 +941,11 @@ class _ZoomState extends State<Zoom>
         onPointerUp: (event) {
           if (widget.onPanUpPosition != null) {
             widget.onPanUpPosition!(event.localPosition);
+          }
+        },
+        onPointerDown: (event) {
+          if (widget.onPanDownPosition != null) {
+            widget.onPanDownPosition!(event.localPosition);
           }
         },
         child: (widget.maxZoomWidth == null || widget.maxZoomHeight == null)
