@@ -46,6 +46,12 @@ class _CustomZoomState extends State<CustomZoom> {
             this.zoom = zoom;
           });
         },
+        onPanDownPosition: (offset) {
+          print('panDown: $offset');
+        },
+        onPanUpPosition: (offset) {
+          print('panUp: $offset');
+        },
         child: Center(
           child: Text(
             "x:${x.toStringAsFixed(2)} y:${y.toStringAsFixed(2)} zoom:${zoom.toStringAsFixed(2)}",
